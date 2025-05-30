@@ -1,0 +1,67 @@
+  * {
+    font-family: "Proxima Nova";
+  }
+
+  body {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .logo {
+    height: 33.5mm;
+    width: 100mm;
+  }
+
+  .name {
+    font-size: 10px;
+    font-family: inherit;
+    color: #333333;
+  }
+
+  .nickname {
+    font-size: 11px;
+    font-family: "Proxima Nova Alt Condensed";
+    color: #333333;
+  }
+
+  .heading {
+    font-family: "Proxima Nova";
+    text-align: center;
+    letter-spacing: 3pt;
+    font-weight: bold;
+    color: #8CC541;
+    font-size: 40px;
+  }
+
+  .subheading {
+    font-family: "Proxima Nova";
+    font-size: 20px;
+    letter-spacing: 3pt;
+    font-weight: thin;
+    line-height: 0;
+    color: #8CC541;
+  }
+
+  .blue {
+    color: #4290c7;
+  }
+
+  .green {
+    color: #8CC541;
+  }
+
+  .gold {
+    color: #EFC219
+  }
+
+  .bg-blue {
+    background-color: #4290c7;
+  }
+
+  .bg-green {
+    background-color: #8CC541;
+  }
+
+  .bg-gold {
+    background-color: #EFC219
+  }

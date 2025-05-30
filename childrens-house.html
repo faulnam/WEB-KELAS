@@ -1,0 +1,750 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(to right, #ffffff, #eef1f6);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            width: 0;
+            height: 2px;
+            left: 0;
+            bottom: -4px;
+            background-color: #6366f1;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link.active {
+            color: #6366f1 !important;
+        }
+
+        .fade-in {
+            animation: fadeIn 1.2s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        .hover-bounce:hover {
+            transform: translateY(-6px) scale(1.02);
+            transition: transform 0.3s ease;
+        }
+
+        .floating-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            background-image: url('https://www.transparenttextures.com/patterns/floating-cogs.png');
+            opacity: 0.06;
+            animation: floatBg 60s linear infinite;
+        }
+
+        @keyframes floatBg {
+            0% {
+                background-position: 0 0;
+            }
+
+            100% {
+                background-position: 1000px 1000px;
+            }
+        }
+
+        .glow-hover:hover {
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+            transform: scale(1.05) rotate(1deg);
+        }
+
+
+
+
+
+
+
+        /* Typography Gen-Z & modern */
+        .heading.blue {
+            font-size: 3rem;
+            text-align: center;
+            color: #4f46e5;
+            /* indigo-600 */
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 2rem;
+            animation: fadeDown 1s ease-out;
+        }
+
+        #faculty-photos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            align-items: start;
+            /* ✅ tambahkan ini! */
+        }
+
+
+        .person.faculty {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .person.faculty:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .portrait-img {
+            width: 100%;
+            height: auto;
+            border-radius: 0.75rem;
+            margin-bottom: 0.75rem;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            animation: pop 0.5s ease-in-out;
+        }
+
+        .name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #1f2937;
+            /* gray-800 */
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Optional nickname style if used */
+        .nickname {
+            font-size: 0.9rem;
+            color: #6b7280;
+            /* gray-500 */
+            font-style: italic;
+        }
+
+        /* Not pictured section */
+        #not-pictured {
+            grid-column: span 2;
+            background-color: #f3f4f6;
+            border-radius: 1rem;
+            padding: 1rem;
+            font-size: 0.95rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Animations */
+        @keyframes fadeDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(0.95);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .description {
+            font-size: 0.9rem;
+            color: #374151;
+            background: #f9fafb;
+            padding: 0.75rem;
+            border-radius: 0.5rem;
+            margin-top: 0.5rem;
+            transition: all 0.3s ease;
+            line-height: 1.4;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .person {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+
+        .description-wrapper {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.5s ease, opacity 0.5s ease;
+        }
+
+        .description-wrapper.show {
+            max-height: 150px;
+            /* cukup tinggi untuk isi konten */
+            opacity: 1;
+        }
+
+        .description {
+            padding: 0.75rem;
+            background: #f0f0f0;
+            border-radius: 0.5rem;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        .nav-link.active {
+            color: #6366f1 !important;
+        }
+
+        .social-icons {
+            margin-top: 10px;
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .social-link {
+            text-decoration: none;
+            font-size: 1.2rem;
+            color: #555;
+            transition: color 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: #0073b1;
+            /* warna saat hover, LinkedIn-style */
+        }
+
+        .description-wrapper {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+        }
+
+        .description-wrapper.show {
+            max-height: 200px;
+            /* atau sesuai kebutuhan */
+        }
+
+        .portrait-img {
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .portrait-img:hover {
+            transform: scale(1.03);
+            opacity: 0.9;
+        }
+
+
+        .animate-fade-slide {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeSlideIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeSlideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .bounce-slow {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+
+        .hamburger-line {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .open .line1 {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .open .line2 {
+            opacity: 0;
+        }
+
+        .open .line3 {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+
+        .glow-hover:hover {
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+        }
+
+        .carousel-container {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.8s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            transition: transform 0.8s ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-r from-[#fdfbfb] to-[#ebedee] text-gray-800 font-sans">
+    <nav class="w-full p-4 bg-white shadow-md fixed top-0 z-50">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="text-2xl font-bold text-indigo-600">TIF Kawai</div>
+
+            <!-- Hamburger Icon -->
+            <div class="md:hidden flex items-center">
+                <button id="menu-btn" class="flex flex-col gap-1">
+                    <span class="hamburger-line line1 w-6 h-0.5 bg-indigo-600"></span>
+                    <span class="hamburger-line line2 w-6 h-0.5 bg-indigo-600"></span>
+                    <span class="hamburger-line line3 w-6 h-0.5 bg-indigo-600"></span>
+                </button>
+            </div>
+
+            <!-- Menu -->
+            <div id="menu" class="space-x-6 hidden md:flex">
+                <a href="index.html" class="nav-link text-base font-medium hover:text-indigo-600">Home</a>
+                <a href="faculty.html" class="nav-link text-base font-medium hover:text-indigo-600">Semester</a>
+                <a href="childrens-house.html"
+                    class="nav-link active text-base font-medium hover:text-indigo-600">Profil</a>
+                <a href="lower-school.html" class="nav-link text-base font-medium hover:text-indigo-600">Gallery</a>
+                <a href="middle-school.html" class="nav-link text-base font-medium hover:text-indigo-600">Experience</a>
+                <a href="high-school.html" class="nav-link text-base font-medium hover:text-indigo-600">Skripsi</a>
+                <a href="seniors.html" class="nav-link text-base font-medium hover:text-indigo-600">...</a>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden flex-col px-6 pb-4 bg-white space-y-2">
+            <a href="index.html" class="block hover:text-indigo-600 transition">Home</a>
+            <a href="faculty.html" class="block hover:text-indigo-600 transition">Semester</a>
+            <a href="childrens-house.html" class="block hover:text-indigo-600 transition">Profil</a>
+            <a href="lower-school.html" class="block hover:text-indigo-600 transition">Gallery</a>
+            <a href="middle-school.html" class="block hover:text-indigo-600 transition">Experience</a>
+            <a href="high-school.html" class="block hover:text-indigo-600 transition">Skripsi</a>
+            <a href="seniors.html" class="block hover:text-indigo-600 transition">...</a>
+        </div>
+    </nav>
+    <div id="main" class="relative z-10 max-w-6xl mx-auto px-6 py-20">
+        <div class="text-center fade-in">
+            <section
+                class="w-full max-w-5x2 mx-auto mt-5 rounded-2xl overflow-hidden shadow-xl carousel-container relative">
+                <div id="carouselTrack" class="carousel-track">
+                    <div class="carousel-slide">
+                        <img src="Faculty-Portraits/kelas1.jpg" alt="Unusida 1" class="w-full object-cover glow-hover">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="Faculty-Portraits/kelas.jpeg" alt="Unusida 2" class="w-full object-cover glow-hover">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="Faculty-Portraits/kelas2.jpg" alt="Unusida 3" class="w-full object-cover glow-hover">
+                    </div>
+                </div>
+
+                <!-- Prev/Next Buttons -->
+                <button id="prevBtn"
+                    class="absolute top-1/2 -translate-y-1/2 left-4 bg-white/60 hover:bg-white text-gray-700 rounded-full p-2 shadow-md">
+                    &larr;
+                </button>
+                <button id="nextBtn"
+                    class="absolute top-1/2 -translate-y-1/2 right-4 bg-white/60 hover:bg-white text-gray-700 rounded-full p-2 shadow-md">
+                    &rarr;
+                </button>
+            </section><br>
+
+
+            <div class="text-4xl md:text-5xl font-bold text-gray-900 mb-3 flex justify-center items-center gap-2">
+                <span class="material-icons-round text-indigo-500 bounce-slow text-5xl">school</span>
+                <span class="tracking-tight">TIF Kawai</span>
+            </div>
+
+            <!-- Lokasi -->
+            <div class="text-lg text-gray-600 flex items-center justify-center gap-1 mb-2">
+                <span class="material-icons-round text-pink-400 bounce-slow text-xl">location_on</span>
+                Jawa Timur, Sidoarjo
+            </div>
+
+            <!-- Tahun -->
+            <div class="text-2xl font-semibold text-indigo-500 animate-fade-in flex items-center justify-center gap-1">
+                <span class="material-icons-round text-amber-500 bounce-slow text-xl">calendar_today</span>
+                2022 - 2026
+            </div>
+        </div>
+
+        <div class="mb-6">
+            <h1 class="text-2xl font-bold text-purple-600 border-b-2 border-purple-300 pb-2 fade-in">📚 Profil</h1>
+        </div>
+
+        <!-- Directory Icons -->
+        <div id="main">
+            <div id="faculty-photos">
+                <div class="person faculty" onclick="toggleDetails(this)">
+                    <div> <img src="Faculty-Portraits/faul1.png" class="portrait-img"
+                            data-alt-src="Faculty-Portraits/faul.jpeg" alt="Foto Syifaul Anam"> </div>
+                    <div class="name">M Syifaul Anam</div>
+                    <div class="nickname">Sipak</div>
+                    <div class="description-wrapper">
+                        <div class="description">
+                            Jangan meremehkan musuh.
+                        </div>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://instagram.com/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/in/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="person faculty" onclick="toggleDetails(this)">
+                    <div> <img src="Faculty-Portraits/nadip.jpeg" class="portrait-img"
+                            data-alt-src="Faculty-Portraits/nadip1.jpg" alt="Foto nadip"> </div>
+                    <div class="name">Nadhif Fathur Rahman</div>
+                    <div class="nickname">Nadip</div>
+                    <div class="description-wrapper">
+                        <div class="description">
+                            Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                        </div>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://instagram.com/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/in/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="person faculty" onclick="toggleDetails(this)">
+                    <div> <img src="Faculty-Portraits/danil.jpg" class="portrait-img"
+                            data-alt-src="Faculty-Portraits/danil1.jpg" alt="Foto danil"> </div>
+                    <div class="name">Daniel Achmad Farizki</div>
+                    <div class="nickname">Danil</div>
+                    <div class="description-wrapper">
+                        <div class="description">
+                            Woi bro.
+                        </div>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://instagram.com/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/in/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="person faculty" onclick="toggleDetails(this)">
+                    <div> <img src="Faculty-Portraits/depan.jpg" class="portrait-img"
+                            data-alt-src="Faculty-Portraits/depan1.jpg" alt="Foto depan"> </div>
+                    <div class="name">Devandra Albansyah Azhar</div>
+                    <div class="nickname">Depan</div>
+                    <div class="description-wrapper">
+                        <div class="description">
+                            Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                        </div>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://instagram.com/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/in/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="person faculty" onclick="toggleDetails(this)">
+                    <div> <img src="Faculty-Portraits/dwi.jpg" class="portrait-img"
+                            data-alt-src="Faculty-Portraits/dwi1.jpg" alt="Foto dwi"> </div>
+                    <div class="name">Dwi Fuji Antika</div>
+                    <div class="nickname">Dwi</div>
+                    <div class="description-wrapper">
+                        <div class="description">
+                            Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                        </div>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://instagram.com/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/in/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="person faculty" onclick="toggleDetails(this)">
+                    <div> <img src="Faculty-Portraits/fito.jpg" class="portrait-img"
+                            data-alt-src="Faculty-Portraits/fito1.jpg" alt="Foto fito"> </div>
+                    <div class="name">Fitto Ardiansyah</div>
+                    <div class="nickname">Fito</div>
+                    <div class="description-wrapper">
+                        <div class="description">
+                            Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                        </div>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://instagram.com/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/in/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="person faculty" onclick="toggleDetails(this)">
+                    <div> <img src="Faculty-Portraits/huda.jpg" class="portrait-img"
+                            data-alt-src="Faculty-Portraits/huda1.jpg" alt="Foto huda"> </div>
+                    <div class="name">M. Huda Noor Setyawan</div>
+                    <div class="nickname">huda</div>
+                    <div class="description-wrapper">
+                        <div class="description">
+                            Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                        </div>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://instagram.com/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/in/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="person faculty" onclick="toggleDetails(this)">
+                    <div> <img src="Faculty-Portraits/nopal.jpg" class="portrait-img"
+                            data-alt-src="Faculty-Portraits/nopal1.jpg" alt="Foto nopal"> </div>
+                    <div class="name">Naufal Eurasia Negara</div>
+                    <div class="nickname">Nopal</div>
+                    <div class="description-wrapper">
+                        <div class="description">
+                            Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                        </div>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://instagram.com/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/in/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="person faculty" onclick="toggleDetails(this)">
+                    <div> <img src="Faculty-Portraits/perdi.jpg" class="portrait-img"
+                            data-alt-src="Faculty-Portraits/perdi1.png" alt="Foto perdi"> </div>
+                    <div class="name">Ferdie Arya Jantanu</div>
+                    <div class="nickname">Perdi</div>
+                    <div class="description-wrapper">
+                        <div class="description">
+                            Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                        </div>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://instagram.com/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/in/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="person faculty" onclick="toggleDetails(this)">
+                    <div> <img src="Faculty-Portraits/udin.jpg" class="portrait-img"
+                            data-alt-src="Faculty-Portraits/udin1.png" alt="Foto perdi"> </div>
+                    <div class="name">Nur Syaifudin</div>
+                    <div class="nickname">Udin</div>
+                    <div class="description-wrapper">
+                        <div class="description">
+                            Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                        </div>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://instagram.com/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/in/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="person faculty" onclick="toggleDetails(this)">
+                    <div> <img src="Faculty-Portraits/rapli.jpg" class="portrait-img"
+                            data-alt-src="Faculty-Portraits/rapli1.jpg" alt="Foto rapli"> </div>
+                    <div class="name">Moch. Rafli Muchibbin</div>
+                    <div class="nickname">Rapli</div>
+                    <div class="description-wrapper">
+                        <div class="description">
+                            Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                        </div>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://instagram.com/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/in/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="person faculty" onclick="toggleDetails(this)">
+                    <div> <img src="Faculty-Portraits/rehan.jpg" class="portrait-img"
+                            data-alt-src="Faculty-Portraits/rehan1.jpg" alt="Foto rehan"> </div>
+                    <div class="name">Moh. Raihan Zacky R </div>
+                    <div class="nickname">Rehan</div>
+                    <div class="description-wrapper">
+                        <div class="description">
+                            Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                        </div>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://instagram.com/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/in/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="person faculty" onclick="toggleDetails(this)">
+                    <div> <img src="Faculty-Portraits/safara.jpg" class="portrait-img"
+                            data-alt-src="Faculty-Portraits/safara1.jpg" alt="Foto safara"> </div>
+                    <div class="name">Alfia Rohmah Safara</div>
+                    <div class="nickname">Saroh</div>
+                    <div class="description-wrapper">
+                        <div class="description">
+                            Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                        </div>
+                    </div>
+                    <div class="social-icons">
+                        <a href="https://instagram.com/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="https://linkedin.com/in/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/syifaulanam" target="_blank" class="social-link"><i
+                                class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+            <footer class="text-center text-sm text-gray-500 py-6 mt-16 border-t border-gray-200 fade-in">
+                Made with 💜 by TIF Kawai
+            </footer>
+
+            <script>
+                function toggleDetails(element) {
+                    const description = element.querySelector('.description-wrapper');
+                    description.classList.toggle('show');
+
+                    // Ubah foto ketika klik
+                    const img = element.querySelector('img');
+                    const currentSrc = img.getAttribute('src');
+                    const altSrc = img.getAttribute('data-alt-src');
+
+                    // Tukar src dan data-alt-src
+                    img.setAttribute('src', altSrc);
+                    img.setAttribute('data-alt-src', currentSrc);
+                }
+
+                const menuBtn = document.getElementById('menu-btn');
+                const menu = document.getElementById('menu');
+                const mobileMenu = document.getElementById('mobile-menu');
+
+                menuBtn.addEventListener('click', () => {
+                    menuBtn.classList.toggle('open');
+                    mobileMenu.classList.toggle('hidden');
+                });
+
+
+
+                const track = document.getElementById('carouselTrack');
+                const slides = document.querySelectorAll('.carousel-slide');
+                const prevBtn = document.getElementById('prevBtn');
+                const nextBtn = document.getElementById('nextBtn');
+
+                let currentIndex = 0;
+                const totalSlides = slides.length;
+
+                function updateSlide() {
+                    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                }
+
+                function nextSlide() {
+                    currentIndex = (currentIndex + 1) % totalSlides;
+                    updateSlide();
+                }
+
+                function prevSlide() {
+                    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+                    updateSlide();
+                }
+
+                nextBtn.addEventListener('click', nextSlide);
+                prevBtn.addEventListener('click', prevSlide);
+
+                // Auto Slide
+                setInterval(nextSlide, 4000);
+            </script>
+
+</body>

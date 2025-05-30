@@ -1,0 +1,458 @@
+<!doctype html>
+<html>
+
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>Profil</title>
+   <script src="https://cdn.tailwindcss.com"></script>
+   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+   <style>
+      .nav-link {
+         position: relative;
+         transition: color 0.3s ease;
+      }
+
+      .nav-link::after {
+         content: "";
+         position: absolute;
+         width: 0;
+         height: 2px;
+         left: 0;
+         bottom: -4px;
+         background-color: #6366f1;
+         transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after {
+         width: 100%;
+      }
+
+      .fade-in {
+         animation: fadeIn 1s ease-out forwards;
+      }
+
+      @keyframes fadeIn {
+         from {
+            opacity: 0;
+            transform: translateY(20px);
+         }
+
+         to {
+            opacity: 1;
+            transform: translateY(0);
+         }
+      }
+
+      .hover-bounce:hover {
+         transform: translateY(-4px);
+         transition: transform 0.3s;
+      }
+
+      /* Typography Gen-Z & modern */
+      .heading.blue {
+         font-size: 3rem;
+         text-align: center;
+         color: #4f46e5;
+         /* indigo-600 */
+         font-family: 'Poppins', sans-serif;
+         margin-bottom: 2rem;
+         animation: fadeDown 1s ease-out;
+      }
+
+      #faculty-photos {
+         display: grid;
+         grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+         gap: 1rem;
+         align-items: start;
+         /* ✅ tambahkan ini! */
+      }
+
+
+      .person.faculty {
+         background: white;
+         border-radius: 1rem;
+         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+         text-align: center;
+         padding: 1rem;
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+         cursor: pointer;
+         position: relative;
+         overflow: hidden;
+      }
+
+      .person.faculty:hover {
+         transform: translateY(-5px) scale(1.03);
+         box-shadow: 0 20px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .portrait-img {
+         width: 100%;
+         height: auto;
+         border-radius: 0.75rem;
+         margin-bottom: 0.75rem;
+         aspect-ratio: 1/1;
+         object-fit: cover;
+         animation: pop 0.5s ease-in-out;
+      }
+
+      .name {
+         font-size: 1rem;
+         font-weight: 600;
+         color: #1f2937;
+         /* gray-800 */
+         font-family: 'Poppins', sans-serif;
+      }
+
+      /* Optional nickname style if used */
+      .nickname {
+         font-size: 0.9rem;
+         color: #6b7280;
+         /* gray-500 */
+         font-style: italic;
+      }
+
+      /* Not pictured section */
+      #not-pictured {
+         grid-column: span 2;
+         background-color: #f3f4f6;
+         border-radius: 1rem;
+         padding: 1rem;
+         font-size: 0.95rem;
+         font-family: 'Poppins', sans-serif;
+      }
+
+      /* Animations */
+      @keyframes fadeDown {
+         0% {
+            opacity: 0;
+            transform: translateY(-20px);
+         }
+
+         100% {
+            opacity: 1;
+            transform: translateY(0);
+         }
+      }
+
+      @keyframes pop {
+         0% {
+            transform: scale(0.95);
+            opacity: 0;
+         }
+
+         100% {
+            transform: scale(1);
+            opacity: 1;
+         }
+      }
+
+      .nav-link.active {
+         color: #6366f1 !important;
+      }
+
+
+      .animate-fade-slide {
+         opacity: 0;
+         transform: translateY(20px);
+         animation: fadeSlideIn 0.8s ease-out forwards;
+      }
+
+      @keyframes fadeSlideIn {
+         to {
+            opacity: 1;
+            transform: translateY(0);
+         }
+      }
+
+      .bounce-slow {
+         animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+
+         0%,
+         100% {
+            transform: translateY(0);
+         }
+
+         50% {
+            transform: translateY(-5px);
+         }
+      }
+
+
+      .hamburger-line {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .open .line1 {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .open .line2 {
+            opacity: 0;
+        }
+
+        .open .line3 {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+   </style>
+</head>
+
+<body class="bg-gradient-to-r from-[#fdfbfb] to-[#ebedee] text-gray-800 font-sans">
+   <nav class="w-full p-4 bg-white shadow-md fixed top-0 z-50">
+      <div class="max-w-6xl mx-auto flex justify-between items-center">
+         <div class="text-2xl font-bold text-indigo-600">TIF Kawai</div>
+
+         <!-- Hamburger Icon -->
+         <div class="md:hidden flex items-center">
+            <button id="menu-btn" class="flex flex-col gap-1">
+               <span class="hamburger-line line1 w-6 h-0.5 bg-indigo-600"></span>
+               <span class="hamburger-line line2 w-6 h-0.5 bg-indigo-600"></span>
+               <span class="hamburger-line line3 w-6 h-0.5 bg-indigo-600"></span>
+            </button>
+         </div>
+
+         <!-- Menu -->
+         <div id="menu" class="space-x-6 hidden md:flex">
+            <a href="index.html" class="nav-link text-base font-medium hover:text-indigo-600">Home</a>
+            <a href="faculty.html" class="nav-link text-base font-medium hover:text-indigo-600">Semester</a>
+            <a href="childrens-house.html" class="nav-link text-base font-medium hover:text-indigo-600">Profil</a>
+            <a href="lower-school.html" class="nav-link active text-base font-medium hover:text-indigo-600">Gallery</a>
+            <a href="middle-school.html" class="nav-link text-base font-medium hover:text-indigo-600">Experience</a>
+            <a href="high-school.html" class="nav-link text-base font-medium hover:text-indigo-600">Skripsi</a>
+            <a href="seniors.html" class="nav-link text-base font-medium hover:text-indigo-600">...</a>
+         </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden hidden flex-col px-6 pb-4 bg-white space-y-2">
+         <a href="index.html" class="block hover:text-indigo-600 transition">Home</a>
+         <a href="faculty.html" class="block hover:text-indigo-600 transition">Semester</a>
+         <a href="childrens-house.html" class="block hover:text-indigo-600 transition">Profil</a>
+         <a href="lower-school.html" class="block hover:text-indigo-600 transition">Gallery</a>
+         <a href="middle-school.html" class="block hover:text-indigo-600 transition">Experience</a>
+         <a href="high-school.html" class="block hover:text-indigo-600 transition">Skripsi</a>
+         <a href="seniors.html" class="block hover:text-indigo-600 transition">...</a>
+      </div>
+   </nav>
+   <div id="main" class="max-w-6xl mx-auto px-6 py-10"><br><br>
+      <div class="text-center fade-in">
+         <div class="text-4xl md:text-5xl font-bold text-gray-900 mb-3 flex justify-center items-center gap-2">
+            <span class="material-icons-round text-indigo-500 bounce-slow text-5xl">school</span>
+            <span class="tracking-tight">TIF Kawai</span>
+         </div>
+
+         <!-- Lokasi -->
+         <div class="text-lg text-gray-600 flex items-center justify-center gap-1 mb-2">
+            <span class="material-icons-round text-pink-400 bounce-slow text-xl">location_on</span>
+            Jawa Timur, Sidoarjo
+         </div>
+
+         <!-- Tahun -->
+         <div class="text-2xl font-semibold text-indigo-500 animate-fade-in flex items-center justify-center gap-1">
+            <span class="material-icons-round text-amber-500 bounce-slow text-xl">calendar_today</span>
+            2022 - 2026
+         </div>
+      </div>
+      <div id="main">
+         <div class="mb-6">
+            <h1 class="text-2xl font-bold text-purple-600 border-b-2 border-purple-300 pb-2 fade-in">📚 Semester 1</h1>
+         </div>
+         <div id="faculty-photos">
+            <div class="person faculty">
+               <div> <img src="Galery/sms1/1.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Galery/sms1/2.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Galery/sms1/3.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Galery/sms1/4.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Faculty-Portraits/Adrien.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+         </div>
+         <div class="mb-6">
+            <h1 class="text-2xl font-bold text-purple-600 border-b-2 border-purple-300 pb-2 fade-in">📚 Semester 2</h1>
+         </div>
+         <div id="faculty-photos">
+            <div class="person faculty">
+               <div> <img src="Galery/sms2/1.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Galery/sms2/2.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Galery/sms2/3.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Galery/sms2/4.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Galery/sms2/5.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+         </div>
+         <div class="mb-6">
+            <h1 class="text-2xl font-bold text-purple-600 border-b-2 border-purple-300 pb-2 fade-in">📚 Semester 3</h1>
+         </div>
+         <div id="faculty-photos">
+            <div class="person faculty">
+               <div> <img src="Galery/sms3/1.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Galery/sms3/2.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Galery/sms3/3.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Galery/sms3/4.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Galery/sms3/5.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+         </div>
+         <div class="mb-6">
+            <h1 class="text-2xl font-bold text-purple-600 border-b-2 border-purple-300 pb-2 fade-in">📚 Semester 4</h1>
+         </div>
+         <div id="faculty-photos">
+            <div class="person faculty">
+               <div> <img src="Galery/sms4/1.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Galery/sms4/2.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Galery/sms4/3.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Galery/sms4/4.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Galery/sms4/5.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Galery/sms4/6.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Galery/sms4/7.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Galery/sms4/8.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Galery/sms4/9.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Galery/sms4/10.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+         </div>
+         <div class="mb-6">
+            <h1 class="text-2xl font-bold text-purple-600 border-b-2 border-purple-300 pb-2 fade-in">📚 Semester 5</h1>
+         </div>
+         <div id="faculty-photos">
+            <div class="person faculty">
+               <div> <img src="Galery/sms5/1.JPG" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Galery/sms5/2.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Galery/sms5/3.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Galery/sms5/4.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Galery/sms5/5.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Galery/sms5/6.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Galery/sms5/7.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Galery/sms5/10.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+         </div>
+         <div class="mb-6">
+            <h1 class="text-2xl font-bold text-purple-600 border-b-2 border-purple-300 pb-2 fade-in">📚 Semester 6</h1>
+         </div>
+         <div id="faculty-photos">
+            <div class="person faculty">
+               <div> <img src="Faculty-Portraits/Adrien.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Faculty-Portraits/Adrien.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Faculty-Portraits/Adrien.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Faculty-Portraits/Adrien.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+            <div class="person faculty">
+               <div> <img src="Faculty-Portraits/Adrien.jpg" class="portrait-img"> </div>
+               <div class="nickname">disini</div>
+            </div>
+         </div>
+         <footer class="text-center text-sm text-gray-500 py-6 mt-16 border-t border-gray-200 fade-in">
+            Made with 💜 by TIF Kawai
+         </footer>
+
+         <script>
+            const menuBtn = document.getElementById('menu-btn');
+                const menu = document.getElementById('menu');
+                const mobileMenu = document.getElementById('mobile-menu');
+
+                menuBtn.addEventListener('click', () => {
+                    menuBtn.classList.toggle('open');
+                    mobileMenu.classList.toggle('hidden');
+                });
+         </script>
+</body>

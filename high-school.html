@@ -1,0 +1,127 @@
+<!doctype html>
+<html>
+
+<head>
+   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Web</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      left: 0;
+      bottom: -4px;
+      background-color: #6366f1;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .fade-in {
+      animation: fadeIn 1s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hover-bounce:hover {
+      transform: translateY(-4px);
+      transition: transform 0.3s;
+    }
+
+    .nav-link.active {
+    color:  #6366f1 !important;
+  }
+
+
+   .hamburger-line {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .open .line1 {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .open .line2 {
+            opacity: 0;
+        }
+
+        .open .line3 {
+            transform: rotate(-45deg) translate(5px, -5px);
+        } 
+  </style>
+</head>
+
+<body class="bg-gradient-to-r from-[#fdfbfb] to-[#ebedee] text-gray-800 font-sans">
+   <nav class="w-full p-4 bg-white shadow-md fixed top-0 z-50">
+      <div class="max-w-6xl mx-auto flex justify-between items-center">
+         <div class="text-2xl font-bold text-indigo-600">TIF Kawai</div>
+
+         <!-- Hamburger Icon -->
+         <div class="md:hidden flex items-center">
+            <button id="menu-btn" class="flex flex-col gap-1">
+               <span class="hamburger-line line1 w-6 h-0.5 bg-indigo-600"></span>
+               <span class="hamburger-line line2 w-6 h-0.5 bg-indigo-600"></span>
+               <span class="hamburger-line line3 w-6 h-0.5 bg-indigo-600"></span>
+            </button>
+         </div>
+
+         <!-- Menu -->
+         <div id="menu" class="space-x-6 hidden md:flex">
+            <a href="index.html" class="nav-link text-base font-medium hover:text-indigo-600">Home</a>
+            <a href="faculty.html" class="nav-link text-base font-medium hover:text-indigo-600">Semester</a>
+            <a href="childrens-house.html" class="nav-link text-base font-medium hover:text-indigo-600">Profil</a>
+            <a href="lower-school.html" class="nav-link text-base font-medium hover:text-indigo-600">Gallery</a>
+            <a href="middle-school.html"
+               class="nav-link text-base font-medium hover:text-indigo-600">Experience</a>
+            <a href="high-school.html" class="nav-link active text-base font-medium hover:text-indigo-600">Skripsi</a>
+            <a href="seniors.html" class="nav-link text-base font-medium hover:text-indigo-600">...</a>
+         </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobile-menu" class="md:hidden hidden flex-col px-6 pb-4 bg-white space-y-2">
+         <a href="index.html" class="block hover:text-indigo-600 transition">Home</a>
+         <a href="faculty.html" class="block hover:text-indigo-600 transition">Semester</a>
+         <a href="childrens-house.html" class="block hover:text-indigo-600 transition">Profil</a>
+         <a href="lower-school.html" class="block hover:text-indigo-600 transition">Gallery</a>
+         <a href="middle-school.html" class="block hover:text-indigo-600 transition">Experience</a>
+         <a href="high-school.html" class="block hover:text-indigo-600 transition">Skripsi</a>
+         <a href="seniors.html" class="block hover:text-indigo-600 transition">...</a>
+      </div>
+   </nav>
+   <footer class="text-center text-sm text-gray-500 py-6 mt-16 border-t border-gray-200 fade-in">
+    Made with 💜 by TIF Kawai
+  </footer>
+
+  <script>
+     const menuBtn = document.getElementById('menu-btn');
+                const menu = document.getElementById('menu');
+                const mobileMenu = document.getElementById('mobile-menu');
+
+                menuBtn.addEventListener('click', () => {
+                    menuBtn.classList.toggle('open');
+                    mobileMenu.classList.toggle('hidden');
+                });
+  </script>
+</body>

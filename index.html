@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Web</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Outfit', sans-serif;
+      overflow-x: hidden;
+      background: linear-gradient(to right, #ffffff, #eef1f6);
+    }
+
+    .nav-link {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      left: 0;
+      bottom: -4px;
+      background-color: #6366f1;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-link.active {
+      color: #6366f1 !important;
+    }
+
+    .fade-in {
+      animation: fadeIn 1.2s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hover-bounce:hover {
+      transform: translateY(-6px) scale(1.02);
+      transition: transform 0.3s ease;
+    }
+
+    .floating-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      background-image: url('https://www.transparenttextures.com/patterns/floating-cogs.png');
+      opacity: 0.06;
+      animation: floatBg 60s linear infinite;
+    }
+
+    @keyframes floatBg {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: 1000px 1000px;
+      }
+    }
+
+    .glow-hover:hover {
+      box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+      transform: scale(1.05) rotate(1deg);
+    }
+
+
+
+    body {
+      background: linear-gradient(135deg, #fdfbfb, #ebedee);
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .grid-container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hover-animated:hover {
+      transform: scale(1.05) rotate(1deg);
+      box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .fade-slide-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: slideFadeIn 0.8s ease forwards;
+    }
+
+    .fade-slide-in:nth-child(1) {
+      animation-delay: 0.1s;
+    }
+
+    .fade-slide-in:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .fade-slide-in:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    .fade-slide-in:nth-child(4) {
+      animation-delay: 0.4s;
+    }
+
+    .fade-slide-in:nth-child(5) {
+      animation-delay: 0.5s;
+    }
+
+    .fade-slide-in:nth-child(6) {
+      animation-delay: 0.6s;
+    }
+
+    .fade-slide-in:nth-child(7) {
+      animation-delay: 0.7s;
+    }
+
+    .fade-slide-in:nth-child(8) {
+      animation-delay: 0.8s;
+    }
+
+    @keyframes slideFadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+    .animate-fade-slide {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeSlideIn 0.8s ease-out forwards;
+    }
+
+    @keyframes fadeSlideIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .bounce-slow {
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+
+    .hamburger-line {
+      transition: all 0.3s ease-in-out;
+    }
+
+    .open .line1 {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .open .line2 {
+      opacity: 0;
+    }
+
+    .open .line3 {
+      transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+
+
+    .glow-hover:hover {
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+    }
+
+    .carousel-container {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.8s ease-in-out;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      transition: transform 0.8s ease-in-out;
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-r from-[#fdfbfb] to-[#ebedee] text-gray-800 font-sans">
+
+  <!-- Navbar -->
+  <nav class="w-full p-4 bg-white shadow-md fixed top-0 z-50">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <div class="text-2xl font-bold text-indigo-600">TIF Kawai</div>
+
+      <!-- Hamburger Icon -->
+      <div class="md:hidden flex items-center">
+        <button id="menu-btn" class="flex flex-col gap-1">
+          <span class="hamburger-line line1 w-6 h-0.5 bg-indigo-600"></span>
+          <span class="hamburger-line line2 w-6 h-0.5 bg-indigo-600"></span>
+          <span class="hamburger-line line3 w-6 h-0.5 bg-indigo-600"></span>
+        </button>
+      </div>
+
+      <!-- Menu -->
+      <div id="menu" class="space-x-6 hidden md:flex">
+        <a href="index.html" class="nav-link active text-base font-medium hover:text-indigo-600">Home</a>
+        <a href="faculty.html" class="nav-link text-base font-medium hover:text-indigo-600">Semester</a>
+        <a href="childrens-house.html" class="nav-link text-base font-medium hover:text-indigo-600">Profil</a>
+        <a href="lower-school.html" class="nav-link text-base font-medium hover:text-indigo-600">Gallery</a>
+        <a href="middle-school.html" class="nav-link text-base font-medium hover:text-indigo-600">Experience</a>
+        <a href="high-school.html" class="nav-link text-base font-medium hover:text-indigo-600">Skripsi</a>
+        <a href="seniors.html" class="nav-link text-base font-medium hover:text-indigo-600">...</a>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden flex-col px-6 pb-4 bg-white space-y-2">
+      <a href="index.html" class="block hover:text-indigo-600 transition">Home</a>
+      <a href="faculty.html" class="block hover:text-indigo-600 transition">Semester</a>
+      <a href="childrens-house.html" class="block hover:text-indigo-600 transition">Profil</a>
+      <a href="lower-school.html" class="block hover:text-indigo-600 transition">Gallery</a>
+      <a href="middle-school.html" class="block hover:text-indigo-600 transition">Experience</a>
+      <a href="high-school.html" class="block hover:text-indigo-600 transition">Skripsi</a>
+      <a href="seniors.html" class="block hover:text-indigo-600 transition">...</a>
+    </div>
+  </nav>
+
+  <!-- Tombol ke halaman lain -->
+  <a class="fixed top-5 right-5 bg-indigo-500 text-white rounded-full p-3 shadow-lg hover:bg-indigo-600 transition"
+    href="faculty.html">
+    <p class="text-xl animate-bounce font-bold">&gt;</p>
+  </a>
+
+  <!-- Main Content -->
+  <div id="main" class="relative z-10 max-w-6xl mx-auto px-6 py-20">
+    <div class="text-center fade-in">
+      <section class="w-full max-w-5xl mx-auto mt-5 rounded-2xl overflow-hidden shadow-xl carousel-container relative">
+        <div id="carouselTrack" class="carousel-track">
+          <div class="carousel-slide">
+            <img src="unusida.jpg" alt="Unusida 1" class="w-full object-cover glow-hover">
+          </div>
+          <div class="carousel-slide">
+            <img src="unusida.jpg" alt="Unusida 2" class="w-full object-cover glow-hover">
+          </div>
+          <div class="carousel-slide">
+            <img src="unusida.jpg" alt="Unusida 3" class="w-full object-cover glow-hover">
+          </div>
+        </div>
+
+        <!-- Prev/Next Buttons -->
+        <button id="prevBtn"
+          class="absolute top-1/2 -translate-y-1/2 left-4 bg-white/60 hover:bg-white text-gray-700 rounded-full p-2 shadow-md">
+          &larr;
+        </button>
+        <button id="nextBtn"
+          class="absolute top-1/2 -translate-y-1/2 right-4 bg-white/60 hover:bg-white text-gray-700 rounded-full p-2 shadow-md">
+          &rarr;
+        </button>
+      </section><br>
+
+      <div class="text-4xl md:text-5xl font-bold text-gray-900 mb-3 flex justify-center items-center gap-2">
+        <span class="material-icons-round text-indigo-500 bounce-slow text-5xl">school</span>
+        <span class="tracking-tight">Universitas Nahdlatul Ulama</span>
+      </div>
+
+      <!-- Lokasi -->
+      <div class="text-lg text-gray-600 flex items-center justify-center gap-1 mb-2">
+        <span class="material-icons-round text-pink-400 bounce-slow text-xl">location_on</span>
+        Jawa Timur, Sidoarjo
+      </div>
+
+      <!-- Tahun -->
+      <div class="text-2xl font-semibold text-indigo-500 animate-fade-in flex items-center justify-center gap-1">
+        <span class="material-icons-round text-amber-500 bounce-slow text-xl">calendar_today</span>
+        2022 - 2026
+      </div>
+    </div>
+
+    <div class="mb-6">
+      <h1 class="text-2xl font-bold text-purple-600 border-b-2 border-purple-300 pb-2 fade-in">📚 Directory</h1>
+    </div>
+
+    <!-- Directory Icons -->
+    <div class="moving-stars"></div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 px-6 py-10 grid-container">
+      <!-- Loop dimulai -->
+      <div class="text-center fade-slide-in">
+        <a href="faculty.html" class="block hover-animated transition-transform duration-300">
+          <img src="Thumbnails/Faculty.jpeg" class="rounded-xl shadow-lg w-full" />
+          <div class="mt-2 font-semibold text-purple-700 text-sm">Semester 1</div>
+        </a>
+      </div>
+
+      <div class="text-center fade-slide-in">
+        <a href="faculty.html" class="block hover-animated transition-transform duration-300">
+          <img src="Thumbnails/children's-house.jpeg" class="rounded-xl shadow-lg w-full" />
+          <div class="mt-2 font-semibold text-purple-700 text-sm">Semester 2</div>
+        </a>
+      </div>
+
+      <div class="text-center fade-slide-in">
+        <a href="faculty.html" class="block hover-animated transition-transform duration-300">
+          <img src="Thumbnails/toddler-class.jpg" class="rounded-xl shadow-lg w-full" />
+          <div class="mt-2 font-semibold text-purple-700 text-sm">Semester 3</div>
+        </a>
+      </div>
+
+      <div class="text-center fade-slide-in">
+        <a href="faculty.html" class="block hover-animated transition-transform duration-300">
+          <img src="Thumbnails/preschool.jpeg" class="rounded-xl shadow-lg w-full" />
+          <div class="mt-2 font-semibold text-purple-700 text-sm">Semester 4</div>
+        </a>
+      </div>
+
+      <div class="text-center fade-slide-in">
+        <a href="faculty.html" class="block hover-animated transition-transform duration-300">
+          <img src="Thumbnails/preschool.jpeg" class="rounded-xl shadow-lg w-full" />
+          <div class="mt-2 font-semibold text-purple-700 text-sm">Semester 5</div>
+        </a>
+      </div>
+
+      <div class="text-center fade-slide-in">
+        <a href="faculty.html" class="block hover-animated transition-transform duration-300">
+          <img src="Thumbnails/preschool.jpeg" class="rounded-xl shadow-lg w-full" />
+          <div class="mt-2 font-semibold text-purple-700 text-sm">Semester 6</div>
+        </a>
+      </div>
+
+      <div class="text-center fade-slide-in">
+        <a href="faculty.html" class="block hover-animated transition-transform duration-300">
+          <img src="Thumbnails/preschool.jpeg" class="rounded-xl shadow-lg w-full" />
+          <div class="mt-2 font-semibold text-purple-700 text-sm">Semester 7</div>
+        </a>
+      </div>
+
+      <div class="text-center fade-slide-in">
+        <a href="faculty.html" class="block hover-animated transition-transform duration-300">
+          <img src="Thumbnails/preschool.jpeg" class="rounded-xl shadow-lg w-full" />
+          <div class="mt-2 font-semibold text-purple-700 text-sm">Semester 8</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center text-sm text-gray-500 py-6 mt-16 border-t border-gray-200 fade-in">
+      Made with 💜 by TIF Kawai
+    </footer>
+    <script>
+      const menuBtn = document.getElementById('menu-btn');
+      const menu = document.getElementById('menu');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      menuBtn.addEventListener('click', () => {
+        menuBtn.classList.toggle('open');
+        mobileMenu.classList.toggle('hidden');
+      });
+
+
+      const track = document.getElementById('carouselTrack');
+      const slides = document.querySelectorAll('.carousel-slide');
+      const prevBtn = document.getElementById('prevBtn');
+      const nextBtn = document.getElementById('nextBtn');
+
+      let currentIndex = 0;
+      const totalSlides = slides.length;
+
+      function updateSlide() {
+        track.style.transform = `translateX(-${currentIndex * 100}%)`;
+      }
+
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateSlide();
+      }
+
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateSlide();
+      }
+
+      nextBtn.addEventListener('click', nextSlide);
+      prevBtn.addEventListener('click', prevSlide);
+
+      // Auto Slide
+      setInterval(nextSlide, 4000);
+    </script>
+</body>
