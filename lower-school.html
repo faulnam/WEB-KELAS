@@ -184,61 +184,64 @@
       }
 
 
-      .hamburger-line {
-            transition: all 0.3s ease-in-out;
-        }
+      .rotate-45 {
+      transform: rotate(45deg) translateY(6px);
+    }
 
-        .open .line1 {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
+    .-rotate-45 {
+      transform: rotate(-45deg) translateY(-6px);
+    }
 
-        .open .line2 {
-            opacity: 0;
-        }
+    .opacity-0 {
+      opacity: 0;
+    }
 
-        .open .line3 {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
+    /* Smooth transition for mobile menu */
+    #mobile-menu {
+      transition: transform 0.4s ease-in-out;
+    }
    </style>
 </head>
 
 <body class="bg-gradient-to-r from-[#fdfbfb] to-[#ebedee] text-gray-800 font-sans">
-   <nav class="w-full p-4 bg-white shadow-md fixed top-0 z-50">
-      <div class="max-w-6xl mx-auto flex justify-between items-center">
-         <div class="text-2xl font-bold text-indigo-600">IF22A</div>
+   <nav class="w-full p-4 bg-white shadow-lg fixed top-0 z-50 transition-all duration-300">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <!-- Logo -->
+      <div class="text-2xl font-bold text-indigo-600 tracking-wide">IF22A</div>
 
-         <!-- Hamburger Icon -->
-         <div class="md:hidden flex items-center">
-            <button id="menu-btn" class="flex flex-col gap-1">
-               <span class="hamburger-line line1 w-6 h-0.5 bg-indigo-600"></span>
-               <span class="hamburger-line line2 w-6 h-0.5 bg-indigo-600"></span>
-               <span class="hamburger-line line3 w-6 h-0.5 bg-indigo-600"></span>
-            </button>
-         </div>
+      <!-- Hamburger Icon -->
+      <button id="menu-btn" class="relative w-8 h-8 flex flex-col justify-center items-center md:hidden z-50">
+        <span class="w-6 h-0.5 bg-indigo-600 transition-all duration-300 origin-center rounded-full line1"></span>
+        <span
+          class="w-6 h-0.5 bg-indigo-600 mt-1.5 transition-all duration-300 origin-center rounded-full line2"></span>
+        <span
+          class="w-6 h-0.5 bg-indigo-600 mt-1.5 transition-all duration-300 origin-center rounded-full line3"></span>
+      </button>
 
-         <!-- Menu -->
-         <div id="menu" class="space-x-6 hidden md:flex">
-            <a href="index.html" class="nav-link text-base font-medium hover:text-indigo-600">Home</a>
-            <a href="faculty.html" class="nav-link text-base font-medium hover:text-indigo-600">Semester</a>
-            <a href="childrens-house.html" class="nav-link text-base font-medium hover:text-indigo-600">Profil</a>
-            <a href="lower-school.html" class="nav-link active text-base font-medium hover:text-indigo-600">Gallery</a>
-            <a href="middle-school.html" class="nav-link text-base font-medium hover:text-indigo-600">Experience</a>
-            <a href="high-school.html" class="nav-link text-base font-medium hover:text-indigo-600">Skripsi</a>
-            <a href="seniors.html" class="nav-link text-base font-medium hover:text-indigo-600">...</a>
-         </div>
+      <!-- Desktop Menu -->
+      <div id="menu" class="space-x-6 hidden md:flex">
+        <a href="index.html" class="nav-link  active text-base font-medium hover:text-indigo-600">Home</a>
+        <a href="faculty.html" class="nav-link text-base font-medium hover:text-indigo-600">Semester</a>
+        <a href="childrens-house.html" class="nav-link text-base font-medium hover:text-indigo-600">Profil</a>
+        <a href="lower-school.html" class="nav-link text-base font-medium hover:text-indigo-600">Gallery</a>
+        <a href="middle-school.html" class="nav-link text-base font-medium hover:text-indigo-600">Experience</a>
+        <a href="high-school.html" class="nav-link text-base font-medium hover:text-indigo-600">Skripsi</a>
+        <a href="seniors.html" class="nav-link text-base font-medium hover:text-indigo-600">...</a>
       </div>
+    </div>
 
-      <!-- Mobile Menu -->
-      <div id="mobile-menu" class="md:hidden hidden flex-col px-6 pb-4 bg-white space-y-2">
-         <a href="index.html" class="block hover:text-indigo-600 transition">Home</a>
-         <a href="faculty.html" class="block hover:text-indigo-600 transition">Semester</a>
-         <a href="childrens-house.html" class="block hover:text-indigo-600 transition">Profil</a>
-         <a href="lower-school.html" class="block hover:text-indigo-600 transition">Gallery</a>
-         <a href="middle-school.html" class="block hover:text-indigo-600 transition">Experience</a>
-         <a href="high-school.html" class="block hover:text-indigo-600 transition">Skripsi</a>
-         <a href="seniors.html" class="block hover:text-indigo-600 transition">...</a>
-      </div>
-   </nav>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+      class="md:hidden fixed top-0 left-0 w-full h-screen bg-white flex flex-col justify-center items-center space-y-6 text-lg font-semibold text-gray-700 transition-transform transform -translate-y-full duration-500 shadow-2xl">
+      <a href="index.html" class="nav-link active hover:text-indigo-600 transition">Home</a>
+      <a href="faculty.html" class="hover:text-indigo-600 transition">Semester</a>
+      <a href="childrens-house.html" class="hover:text-indigo-600 transition">Profil</a>
+      <a href="lower-school.html" class="nav-link active hover:text-indigo-600 transition">Gallery</a>
+      <a href="middle-school.html" class="hover:text-indigo-600 transition">Experience</a>
+      <a href="high-school.html" class="hover:text-indigo-600 transition">Skripsi</a>
+      <a href="seniors.html" class="hover:text-indigo-600 transition">...</a>
+    </div>
+  </nav>
    <div id="main" class="max-w-6xl mx-auto px-6 py-10"><br><br>
       <div class="text-center fade-in">
          <div class="text-4xl md:text-5xl font-bold text-gray-900 mb-3 flex justify-center items-center gap-2">
@@ -260,7 +263,7 @@
       </div>
       <div id="main">
          <div class="mb-6">
-            <h1 class="text-2xl font-bold text-purple-600 border-b-2 border-purple-300 pb-2 fade-in">📚 Semester 1</h1>
+            <h1 class="text-2xl font-bold text-purple-600 border-b-2 border-purple-300 pb-2 fade-in"><br><br><br>📚 Semester 1</h1>
          </div>
          <div id="faculty-photos">
             <div class="person faculty">
@@ -447,12 +450,17 @@
 
          <script>
             const menuBtn = document.getElementById('menu-btn');
-                const menu = document.getElementById('menu');
-                const mobileMenu = document.getElementById('mobile-menu');
+      const mobileMenu = document.getElementById('mobile-menu');
+      let menuOpen = false;
 
-                menuBtn.addEventListener('click', () => {
-                    menuBtn.classList.toggle('open');
-                    mobileMenu.classList.toggle('hidden');
-                });
+      menuBtn.addEventListener('click', () => {
+        menuOpen = !menuOpen;
+        mobileMenu.classList.toggle('-translate-y-full');
+
+        // Animate hamburger to X
+        menuBtn.querySelector('.line1').classList.toggle('rotate-45');
+        menuBtn.querySelector('.line2').classList.toggle('opacity-0');
+        menuBtn.querySelector('.line3').classList.toggle('-rotate-45');
+      });
          </script>
 </body>
