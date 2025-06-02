@@ -185,65 +185,86 @@
 
 
       .rotate-45 {
-      transform: rotate(45deg) translateY(6px);
-    }
+         transform: rotate(45deg) translateY(6px);
+      }
 
-    .-rotate-45 {
-      transform: rotate(-45deg) translateY(-6px);
-    }
+      .-rotate-45 {
+         transform: rotate(-45deg) translateY(-6px);
+      }
 
-    .opacity-0 {
-      opacity: 0;
-    }
+      .opacity-0 {
+         opacity: 0;
+      }
 
-    /* Smooth transition for mobile menu */
-    #mobile-menu {
-      transition: transform 0.4s ease-in-out;
-    }
+      /* Smooth transition for mobile menu */
+      #mobile-menu {
+         transition: transform 0.4s ease-in-out;
+      }
+
+
+
+
+
+       @keyframes wave {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(15deg); }
+    50% { transform: rotate(-10deg); }
+    75% { transform: rotate(20deg); }
+  }
+
+  .waving-arm {
+    display: inline-block;
+    animation: wave 2s infinite;
+    transform-origin: bottom right;
+    font-size: 10rem;
+  }
    </style>
 </head>
 
 <body class="bg-gradient-to-r from-[#fdfbfb] to-[#ebedee] text-gray-800 font-sans">
    <nav class="w-full p-4 bg-white shadow-lg fixed top-0 z-50 transition-all duration-300">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <!-- Logo -->
-      <div class="text-2xl font-bold text-indigo-600 tracking-wide">IF22A</div>
+      <div class="max-w-6xl mx-auto flex justify-between items-center">
+         <!-- Logo -->
+         <div class="text-2xl font-bold text-indigo-600 tracking-wide">IF22A</div>
 
-      <!-- Hamburger Icon -->
-      <button id="menu-btn" class="relative w-8 h-8 flex flex-col justify-center items-center md:hidden z-50">
-        <span class="w-6 h-0.5 bg-indigo-600 transition-all duration-300 origin-center rounded-full line1"></span>
-        <span
-          class="w-6 h-0.5 bg-indigo-600 mt-1.5 transition-all duration-300 origin-center rounded-full line2"></span>
-        <span
-          class="w-6 h-0.5 bg-indigo-600 mt-1.5 transition-all duration-300 origin-center rounded-full line3"></span>
-      </button>
+         <!-- Hamburger Icon -->
+         <button id="menu-btn" class="relative w-8 h-8 flex flex-col justify-center items-center md:hidden z-50">
+            <span class="w-6 h-0.5 bg-indigo-600 transition-all duration-300 origin-center rounded-full line1"></span>
+            <span
+               class="w-6 h-0.5 bg-indigo-600 mt-1.5 transition-all duration-300 origin-center rounded-full line2"></span>
+            <span
+               class="w-6 h-0.5 bg-indigo-600 mt-1.5 transition-all duration-300 origin-center rounded-full line3"></span>
+         </button>
 
-      <!-- Desktop Menu -->
-      <div id="menu" class="space-x-6 hidden md:flex">
-        <a href="index.html" class="nav-link text-base font-medium hover:text-indigo-600">Home</a>
-        <a href="faculty.html" class="nav-link text-base font-medium hover:text-indigo-600">Semester</a>
-        <a href="childrens-house.html" class="nav-link text-base font-medium hover:text-indigo-600">Profil</a>
-        <a href="lower-school.html" class="nav-link active text-base font-medium hover:text-indigo-600">Gallery</a>
-        <a href="middle-school.html" class="nav-link text-base font-medium hover:text-indigo-600">Experience</a>
-        <a href="high-school.html" class="nav-link text-base font-medium hover:text-indigo-600">Skripsi</a>
-        <a href="seniors.html" class="nav-link text-base font-medium hover:text-indigo-600">...</a>
+         <!-- Desktop Menu -->
+         <div id="menu" class="space-x-6 hidden md:flex">
+            <a href="index.html" class="nav-link text-base font-medium hover:text-indigo-600">Home</a>
+            <a href="faculty.html" class="nav-link text-base font-medium hover:text-indigo-600">Semester</a>
+            <a href="childrens-house.html" class="nav-link text-base font-medium hover:text-indigo-600">Profil</a>
+            <a href="lower-school.html" class="nav-link active text-base font-medium hover:text-indigo-600">Gallery</a>
+            <a href="middle-school.html" class="nav-link text-base font-medium hover:text-indigo-600">Experience</a>
+            <a href="high-school.html" class="nav-link text-base font-medium hover:text-indigo-600">Skripsi</a>
+            <a href="seniors.html" class="nav-link text-base font-medium hover:text-indigo-600">...</a>
+         </div>
       </div>
-    </div>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu"
-      class="md:hidden fixed top-0 left-0 w-full h-screen bg-white flex flex-col justify-center items-center space-y-6 text-lg font-semibold text-gray-700 transition-transform transform -translate-y-full duration-500 shadow-2xl">
-      <a href="index.html" class=" hover:text-indigo-600 transition">Home</a>
-      <a href="faculty.html" class="hover:text-indigo-600 transition">Semester</a>
-      <a href="childrens-house.html" class="hover:text-indigo-600 transition">Profil</a>
-      <a href="lower-school.html" class="nav-link active hover:text-indigo-600 transition">Gallery</a>
-      <a href="middle-school.html" class="hover:text-indigo-600 transition">Experience</a>
-      <a href="high-school.html" class="hover:text-indigo-600 transition">Skripsi</a>
-      <a href="seniors.html" class="hover:text-indigo-600 transition">...</a>
-    </div>
-  </nav>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu"
+         class="md:hidden fixed top-0 left-0 w-full h-screen bg-white flex flex-col justify-center items-center space-y-6 text-lg font-semibold text-gray-700 transition-transform transform -translate-y-full duration-500 shadow-2xl">
+         <a href="index.html" class=" hover:text-indigo-600 transition">Home</a>
+         <a href="faculty.html" class="hover:text-indigo-600 transition">Semester</a>
+         <a href="childrens-house.html" class="hover:text-indigo-600 transition">Profil</a>
+         <a href="lower-school.html" class="nav-link active hover:text-indigo-600 transition">Gallery</a>
+         <a href="middle-school.html" class="hover:text-indigo-600 transition">Experience</a>
+         <a href="high-school.html" class="hover:text-indigo-600 transition">Skripsi</a>
+         <a href="seniors.html" class="hover:text-indigo-600 transition">...</a>
+      </div>
+   </nav>
    <div id="main" class="max-w-6xl mx-auto px-6 py-10"><br><br>
       <div class="text-center fade-in">
+         <div class="absolute right-5 bottom-25 flex items-center gap-1">
+            <div class="waving-arm">👋</div>
+         </div>
          <div class="text-4xl md:text-5xl font-bold text-gray-900 mb-3 flex justify-center items-center gap-2">
             <span class="material-icons-round text-indigo-500 bounce-slow text-5xl">school</span>
             <span class="tracking-tight">Unusida</span>
@@ -263,7 +284,8 @@
       </div>
       <div id="main">
          <div class="mb-6">
-            <h1 class="text-2xl font-bold text-purple-600 border-b-2 border-purple-300 pb-2 fade-in"><br><br><br>📚 Semester 1</h1>
+            <h1 class="text-2xl font-bold text-purple-600 border-b-2 border-purple-300 pb-2 fade-in"><br><br>📚 Semester
+               1</h1>
          </div>
          <div id="faculty-photos">
             <div class="person faculty">
@@ -450,17 +472,17 @@
 
          <script>
             const menuBtn = document.getElementById('menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      let menuOpen = false;
+            const mobileMenu = document.getElementById('mobile-menu');
+            let menuOpen = false;
 
-      menuBtn.addEventListener('click', () => {
-        menuOpen = !menuOpen;
-        mobileMenu.classList.toggle('-translate-y-full');
+            menuBtn.addEventListener('click', () => {
+               menuOpen = !menuOpen;
+               mobileMenu.classList.toggle('-translate-y-full');
 
-        // Animate hamburger to X
-        menuBtn.querySelector('.line1').classList.toggle('rotate-45');
-        menuBtn.querySelector('.line2').classList.toggle('opacity-0');
-        menuBtn.querySelector('.line3').classList.toggle('-rotate-45');
-      });
+               // Animate hamburger to X
+               menuBtn.querySelector('.line1').classList.toggle('rotate-45');
+               menuBtn.querySelector('.line2').classList.toggle('opacity-0');
+               menuBtn.querySelector('.line3').classList.toggle('-rotate-45');
+            });
          </script>
 </body>
