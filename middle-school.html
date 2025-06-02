@@ -197,21 +197,21 @@
 
 
       .rotate-45 {
-      transform: rotate(45deg) translateY(6px);
-    }
+         transform: rotate(45deg) translateY(6px);
+      }
 
-    .-rotate-45 {
-      transform: rotate(-45deg) translateY(-6px);
-    }
+      .-rotate-45 {
+         transform: rotate(-45deg) translateY(-6px);
+      }
 
-    .opacity-0 {
-      opacity: 0;
-    }
+      .opacity-0 {
+         opacity: 0;
+      }
 
-    /* Smooth transition for mobile menu */
-    #mobile-menu {
-      transition: transform 0.4s ease-in-out;
-    }
+      /* Smooth transition for mobile menu */
+      #mobile-menu {
+         transition: transform 0.4s ease-in-out;
+      }
 
 
 
@@ -237,75 +237,76 @@
 
 
       .animate-fade-slide {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeSlideIn 0.8s ease-out forwards;
-    }
-
-    @keyframes fadeSlideIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .bounce-slow {
-      animation: bounce 2s infinite;
-    }
-
-    @keyframes bounce {
-
-      0%,
-      100% {
-        transform: translateY(0);
+         opacity: 0;
+         transform: translateY(20px);
+         animation: fadeSlideIn 0.8s ease-out forwards;
       }
 
-      50% {
-        transform: translateY(-5px);
+      @keyframes fadeSlideIn {
+         to {
+            opacity: 1;
+            transform: translateY(0);
+         }
       }
-    }
+
+      .bounce-slow {
+         animation: bounce 2s infinite;
+      }
+
+      @keyframes bounce {
+
+         0%,
+         100% {
+            transform: translateY(0);
+         }
+
+         50% {
+            transform: translateY(-5px);
+         }
+      }
    </style>
 </head>
 
 <body class="bg-gradient-to-r from-[#fdfbfb] to-[#ebedee] text-gray-800 font-sans">
    <nav class="w-full p-4 bg-white shadow-lg fixed top-0 z-50 transition-all duration-300">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <!-- Logo -->
-      <div class="text-2xl font-bold text-indigo-600 tracking-wide">IF22A</div>
+      <div class="max-w-6xl mx-auto flex justify-between items-center">
+         <!-- Logo -->
+         <div class="text-2xl font-bold text-indigo-600 tracking-wide">IF22A</div>
 
-      <!-- Hamburger Icon -->
-      <button id="menu-btn" class="relative w-8 h-8 flex flex-col justify-center items-center md:hidden z-50">
-        <span class="w-6 h-0.5 bg-indigo-600 transition-all duration-300 origin-center rounded-full line1"></span>
-        <span
-          class="w-6 h-0.5 bg-indigo-600 mt-1.5 transition-all duration-300 origin-center rounded-full line2"></span>
-        <span
-          class="w-6 h-0.5 bg-indigo-600 mt-1.5 transition-all duration-300 origin-center rounded-full line3"></span>
-      </button>
+         <!-- Hamburger Icon -->
+         <button id="menu-btn" class="relative w-8 h-8 flex flex-col justify-center items-center md:hidden z-50">
+            <span class="w-6 h-0.5 bg-indigo-600 transition-all duration-300 origin-center rounded-full line1"></span>
+            <span
+               class="w-6 h-0.5 bg-indigo-600 mt-1.5 transition-all duration-300 origin-center rounded-full line2"></span>
+            <span
+               class="w-6 h-0.5 bg-indigo-600 mt-1.5 transition-all duration-300 origin-center rounded-full line3"></span>
+         </button>
 
-      <!-- Desktop Menu -->
-      <div id="menu" class="space-x-6 hidden md:flex">
-        <a href="index.html" class="nav-link  active text-base font-medium hover:text-indigo-600">Home</a>
-        <a href="faculty.html" class="nav-link text-base font-medium hover:text-indigo-600">Semester</a>
-        <a href="childrens-house.html" class="nav-link text-base font-medium hover:text-indigo-600">Profil</a>
-        <a href="lower-school.html" class="nav-link text-base font-medium hover:text-indigo-600">Gallery</a>
-        <a href="middle-school.html" class="nav-link text-base font-medium hover:text-indigo-600">Experience</a>
-        <a href="high-school.html" class="nav-link text-base font-medium hover:text-indigo-600">Skripsi</a>
-        <a href="seniors.html" class="nav-link text-base font-medium hover:text-indigo-600">...</a>
+         <!-- Desktop Menu -->
+         <div id="menu" class="space-x-6 hidden md:flex">
+            <a href="index.html" class="nav-link text-base font-medium hover:text-indigo-600">Home</a>
+            <a href="faculty.html" class="nav-link text-base font-medium hover:text-indigo-600">Semester</a>
+            <a href="childrens-house.html" class="nav-link text-base font-medium hover:text-indigo-600">Profil</a>
+            <a href="lower-school.html" class="nav-link text-base font-medium hover:text-indigo-600">Gallery</a>
+            <a href="middle-school.html"
+               class="nav-link active text-base font-medium hover:text-indigo-600">Experience</a>
+            <a href="high-school.html" class="nav-link text-base font-medium hover:text-indigo-600">Skripsi</a>
+            <a href="seniors.html" class="nav-link text-base font-medium hover:text-indigo-600">...</a>
+         </div>
       </div>
-    </div>
 
-    <!-- Mobile Menu -->
-    <div id="mobile-menu"
-      class="md:hidden fixed top-0 left-0 w-full h-screen bg-white flex flex-col justify-center items-center space-y-6 text-lg font-semibold text-gray-700 transition-transform transform -translate-y-full duration-500 shadow-2xl">
-      <a href="index.html" class=" hover:text-indigo-600 transition">Home</a>
-      <a href="faculty.html" class="hover:text-indigo-600 transition">Semester</a>
-      <a href="childrens-house.html" class="hover:text-indigo-600 transition">Profil</a>
-      <a href="lower-school.html" class="hover:text-indigo-600 transition">Gallery</a>
-      <a href="middle-school.html" class="nav-link active hover:text-indigo-600 transition">Experience</a>
-      <a href="high-school.html" class="hover:text-indigo-600 transition">Skripsi</a>
-      <a href="seniors.html" class="hover:text-indigo-600 transition">...</a>
-    </div>
-  </nav>
+      <!-- Mobile Menu -->
+      <div id="mobile-menu"
+         class="md:hidden fixed top-0 left-0 w-full h-screen bg-white flex flex-col justify-center items-center space-y-6 text-lg font-semibold text-gray-700 transition-transform transform -translate-y-full duration-500 shadow-2xl">
+         <a href="index.html" class=" hover:text-indigo-600 transition">Home</a>
+         <a href="faculty.html" class="hover:text-indigo-600 transition">Semester</a>
+         <a href="childrens-house.html" class="hover:text-indigo-600 transition">Profil</a>
+         <a href="lower-school.html" class="hover:text-indigo-600 transition">Gallery</a>
+         <a href="middle-school.html" class="nav-link active hover:text-indigo-600 transition">Experience</a>
+         <a href="high-school.html" class="hover:text-indigo-600 transition">Skripsi</a>
+         <a href="seniors.html" class="hover:text-indigo-600 transition">...</a>
+      </div>
+   </nav>
    <div id="main" class="relative z-10 max-w-6xl mx-auto px-6 py-20">
       <div class="text-center fade-in">
          <section
@@ -355,8 +356,8 @@
       <div id="main">
          <div id="faculty-photos">
             <div class="person faculty" onclick="toggleDetails(this)">
-               <div> <img src="Faculty-Portraits/Adrien.jpg" class="portrait-img"> </div>
-               <div class="name">Kalkulus</div>
+               <div> <img src="experience/sms1/1.JPG" class="portrait-img"> </div>
+               <div class="name">hehe</div>
                <div class="nickname"></div>
                <div class="description-wrapper">
                   <div class="description">
@@ -365,18 +366,8 @@
                </div>
             </div>
             <div class="person faculty" onclick="toggleDetails(this)">
-               <div> <img src="Faculty-Portraits/Fac Balf.jpg" class="portrait-img"> </div>
-               <div class="name">Aljabar Linier</div>
-               <div class="nickname">bnn</div>
-               <div class="description-wrapper">
-                  <div class="description">
-                     Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
-                  </div>
-               </div>
-            </div>
-            <div class="person faculty" onclick="toggleDetails(this)">
-               <div> <img src="Faculty-Portraits/Fac Annie.jpg" class="portrait-img"> </div>
-               <div class="name">Dasar Pemrograman</div>
+               <div> <img src="experience/sms1/2.JPG" class="portrait-img"> </div>
+               <div class="name">hehe</div>
                <div class="nickname"></div>
                <div class="description-wrapper">
                   <div class="description">
@@ -385,8 +376,8 @@
                </div>
             </div>
             <div class="person faculty" onclick="toggleDetails(this)">
-               <div> <img src="Faculty-Portraits/Asha.jpg" class="portrait-img"> </div>
-               <div class="name">Arsitektur & Organisasi Komputer</div>
+               <div> <img src="experience/sms1/3.JPG" class="portrait-img"> </div>
+               <div class="name">hehe</div>
                <div class="nickname"></div>
                <div class="description-wrapper">
                   <div class="description">
@@ -395,8 +386,8 @@
                </div>
             </div>
             <div class="person faculty" onclick="toggleDetails(this)">
-               <div> <img src="Faculty-Portraits/Fac Brigitte.jpg" class="portrait-img"> </div>
-               <div class="name">Rangkaian Digital</div>
+               <div> <img src="experience/sms1/4.JPG" class="portrait-img"> </div>
+               <div class="name">hehe</div>
                <div class="nickname"></div>
                <div class="description-wrapper">
                   <div class="description">
@@ -405,8 +396,8 @@
                </div>
             </div>
             <div class="person faculty" onclick="toggleDetails(this)">
-               <div> <img src="Faculty-Portraits/Fac Brigitte.jpg" class="portrait-img"> </div>
-               <div class="name">Pengantar Teknik Informatika</div>
+               <div> <img src="experience/sms1/5.JPG" class="portrait-img"> </div>
+               <div class="name">hehe</div>
                <div class="nickname"></div>
                <div class="description-wrapper">
                   <div class="description">
@@ -415,8 +406,8 @@
                </div>
             </div>
             <div class="person faculty" onclick="toggleDetails(this)">
-               <div> <img src="Faculty-Portraits/Fac Brigitte.jpg" class="portrait-img"> </div>
-               <div class="name">Pendidikan Agama Islam</div>
+               <div> <img src="experience/sms1/6.jpg" class="portrait-img"> </div>
+               <div class="name">hehe</div>
                <div class="nickname"></div>
                <div class="description-wrapper">
                   <div class="description">
@@ -425,8 +416,48 @@
                </div>
             </div>
             <div class="person faculty" onclick="toggleDetails(this)">
-               <div> <img src="Faculty-Portraits/Fac Brigitte.jpg" class="portrait-img"> </div>
-               <div class="name"> Pendidikan Kewarganegaraan</div>
+               <div> <img src="experience/sms1/7.jpg" class="portrait-img"> </div>
+               <div class="name">hehe</div>
+               <div class="nickname"></div>
+               <div class="description-wrapper">
+                  <div class="description">
+                     Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                  </div>
+               </div>
+            </div>
+            <div class="person faculty" onclick="toggleDetails(this)">
+               <div> <img src="experience/sms1/8.jpg" class="portrait-img"> </div>
+               <div class="name">hehe</div>
+               <div class="nickname"></div>
+               <div class="description-wrapper">
+                  <div class="description">
+                     Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                  </div>
+               </div>
+            </div>
+            <div class="person faculty" onclick="toggleDetails(this)">
+               <div> <img src="experience/sms1/9.jpg" class="portrait-img"> </div>
+               <div class="name">hehe</div>
+               <div class="nickname"></div>
+               <div class="description-wrapper">
+                  <div class="description">
+                     Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                  </div>
+               </div>
+            </div>
+            <div class="person faculty" onclick="toggleDetails(this)">
+               <div> <img src="experience/sms1/10.jpg" class="portrait-img"> </div>
+               <div class="name">hehe</div>
+               <div class="nickname"></div>
+               <div class="description-wrapper">
+                  <div class="description">
+                     Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                  </div>
+               </div>
+            </div>
+            <div class="person faculty" onclick="toggleDetails(this)">
+               <div> <img src="experience/sms1/11.jpg" class="portrait-img"> </div>
+               <div class="name">hehe</div>
                <div class="nickname"></div>
                <div class="description-wrapper">
                   <div class="description">
@@ -440,31 +471,35 @@
             </h1>
          </div>
          <div id="faculty-photos">
-
-            <div class="person faculty">
-               <div> <img src="Faculty-Portraits/Adrien.jpg" class="portrait-img"> </div>
-               <div class="name">Adrien Logsdon</div>
+            <div class="person faculty" onclick="toggleDetails(this)">
+               <div> <img src="experience/Semester 2/BAKTI-SOSIAL-2023/1.jpg" class="portrait-img"> </div>
+               <div class="name">hehe</div>
                <div class="nickname"></div>
+               <div class="description-wrapper">
+                  <div class="description">
+                     Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                  </div>
+               </div>
             </div>
-            <div class="person faculty">
-               <div> <img src="Faculty-Portraits/Fac Balf.jpg" class="portrait-img"> </div>
-               <div class="name">Anne Balf</div>
+            <div class="person faculty" onclick="toggleDetails(this)">
+               <div> <img src="experience/Semester 2/BAKTI-SOSIAL-2023/2.jpg" class="portrait-img"> </div>
+               <div class="name">hehe</div>
                <div class="nickname"></div>
+               <div class="description-wrapper">
+                  <div class="description">
+                     Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                  </div>
+               </div>
             </div>
-            <div class="person faculty">
-               <div> <img src="Faculty-Portraits/Fac Annie.jpg" class="portrait-img"> </div>
-               <div class="name">Antonia Garcia</div>
+            <div class="person faculty" onclick="toggleDetails(this)">
+               <div> <img src="experience/Semester 2/UEC-2023/1.jpg" class="portrait-img"> </div>
+               <div class="name">hehe</div>
                <div class="nickname"></div>
-            </div>
-            <div class="person faculty">
-               <div> <img src="Faculty-Portraits/Asha.jpg" class="portrait-img"> </div>
-               <div class="name">Asha Sharma</div>
-               <div class="nickname"></div>
-            </div>
-            <div class="person faculty">
-               <div> <img src="Faculty-Portraits/Fac Brigitte.jpg" class="portrait-img"> </div>
-               <div class="name">Brigitte Konen</div>
-               <div class="nickname"></div>
+               <div class="description-wrapper">
+                  <div class="description">
+                     Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                  </div>
+               </div>
             </div>
          </div>
          <div class="mb-6">
@@ -473,30 +508,35 @@
          </div>
          <div id="faculty-photos">
 
-            <div class="person faculty">
-               <div> <img src="Faculty-Portraits/Adrien.jpg" class="portrait-img"> </div>
-               <div class="name">Adrien Logsdon</div>
+            <div class="person faculty" onclick="toggleDetails(this)">
+               <div> <img src="experience/Semester 3/PELANTIKAN ORMAWA 2024/1.jpg" class="portrait-img"> </div>
+               <div class="name">hehe</div>
                <div class="nickname"></div>
+               <div class="description-wrapper">
+                  <div class="description">
+                     Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                  </div>
+               </div>
             </div>
-            <div class="person faculty">
-               <div> <img src="Faculty-Portraits/Fac Balf.jpg" class="portrait-img"> </div>
-               <div class="name">Anne Balf</div>
+            <div class="person faculty" onclick="toggleDetails(this)">
+               <div> <img src="experience/Semester 3/PELANTIKAN ORMAWA 2024/2.jpg" class="portrait-img"> </div>
+               <div class="name">hehe</div>
                <div class="nickname"></div>
+               <div class="description-wrapper">
+                  <div class="description">
+                     Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                  </div>
+               </div>
             </div>
-            <div class="person faculty">
-               <div> <img src="Faculty-Portraits/Fac Annie.jpg" class="portrait-img"> </div>
-               <div class="name">Antonia Garcia</div>
+            <div class="person faculty" onclick="toggleDetails(this)">
+               <div> <img src="experience/Semester 3/PELANTIKAN ORMAWA 2024/3.jpg" class="portrait-img"> </div>
+               <div class="name">hehe</div>
                <div class="nickname"></div>
-            </div>
-            <div class="person faculty">
-               <div> <img src="Faculty-Portraits/Asha.jpg" class="portrait-img"> </div>
-               <div class="name">Asha Sharma</div>
-               <div class="nickname"></div>
-            </div>
-            <div class="person faculty">
-               <div> <img src="Faculty-Portraits/Fac Brigitte.jpg" class="portrait-img"> </div>
-               <div class="name">Brigitte Konen</div>
-               <div class="nickname"></div>
+               <div class="description-wrapper">
+                  <div class="description">
+                     Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                  </div>
+               </div>
             </div>
          </div>
          <div class="mb-6">
@@ -505,10 +545,15 @@
          </div>
          <div id="faculty-photos">
 
-            <div class="person faculty">
-               <div> <img src="Faculty-Portraits/Adrien.jpg" class="portrait-img"> </div>
-               <div class="name">Adrien Logsdon</div>
+            <div class="person faculty" onclick="toggleDetails(this)">
+               <div> <img src="experience/Semester 4/INACOM 2024/" class="portrait-img"> </div>
+               <div class="name">hehe</div>
                <div class="nickname"></div>
+               <div class="description-wrapper">
+                  <div class="description">
+                     Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                  </div>
+               </div>
             </div>
             <div class="person faculty">
                <div> <img src="Faculty-Portraits/Fac Balf.jpg" class="portrait-img"> </div>
@@ -537,30 +582,85 @@
          </div>
          <div id="faculty-photos">
 
-            <div class="person faculty">
-               <div> <img src="Faculty-Portraits/Adrien.jpg" class="portrait-img"> </div>
-               <div class="name">Adrien Logsdon</div>
+            <div class="person faculty" onclick="toggleDetails(this)">
+               <div> <img src="experience/sms5/1.jpg" class="portrait-img"> </div>
+               <div class="name">hehe</div>
                <div class="nickname"></div>
+               <div class="description-wrapper">
+                  <div class="description">
+                     Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                  </div>
+               </div>
             </div>
-            <div class="person faculty">
-               <div> <img src="Faculty-Portraits/Fac Balf.jpg" class="portrait-img"> </div>
-               <div class="name">Anne Balf</div>
+            <div class="person faculty" onclick="toggleDetails(this)">
+               <div> <img src="experience/sms5/2.jpg" class="portrait-img"> </div>
+               <div class="name">hehe</div>
                <div class="nickname"></div>
+               <div class="description-wrapper">
+                  <div class="description">
+                     Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                  </div>
+               </div>
             </div>
-            <div class="person faculty">
-               <div> <img src="Faculty-Portraits/Fac Annie.jpg" class="portrait-img"> </div>
-               <div class="name">Antonia Garcia</div>
+            <div class="person faculty" onclick="toggleDetails(this)">
+               <div> <img src="experience/sms5/3.jpg" class="portrait-img"> </div>
+               <div class="name">hehe</div>
                <div class="nickname"></div>
+               <div class="description-wrapper">
+                  <div class="description">
+                     Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                  </div>
+               </div>
             </div>
-            <div class="person faculty">
-               <div> <img src="Faculty-Portraits/Asha.jpg" class="portrait-img"> </div>
-               <div class="name">Asha Sharma</div>
+            <div class="person faculty" onclick="toggleDetails(this)">
+               <div> <img src="experience/sms5/4.jpg" class="portrait-img"> </div>
+               <div class="name">hehe</div>
                <div class="nickname"></div>
+               <div class="description-wrapper">
+                  <div class="description">
+                     Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                  </div>
+               </div>
             </div>
-            <div class="person faculty">
-               <div> <img src="Faculty-Portraits/Fac Brigitte.jpg" class="portrait-img"> </div>
-               <div class="name">Brigitte Konen</div>
+            <div class="person faculty" onclick="toggleDetails(this)">
+               <div> <img src="experience/sms5/5.jpg" class="portrait-img"> </div>
+               <div class="name">hehe</div>
                <div class="nickname"></div>
+               <div class="description-wrapper">
+                  <div class="description">
+                     Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                  </div>
+               </div>
+            </div>
+            <div class="person faculty" onclick="toggleDetails(this)">
+               <div> <img src="experience/sms5/6.jpg" class="portrait-img"> </div>
+               <div class="name">hehe</div>
+               <div class="nickname"></div>
+               <div class="description-wrapper">
+                  <div class="description">
+                     Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                  </div>
+               </div>
+            </div>
+            <div class="person faculty" onclick="toggleDetails(this)">
+               <div> <img src="experience/sms5/7.jpg" class="portrait-img"> </div>
+               <div class="name">hehe</div>
+               <div class="nickname"></div>
+               <div class="description-wrapper">
+                  <div class="description">
+                     Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                  </div>
+               </div>
+            </div>
+            <div class="person faculty" onclick="toggleDetails(this)">
+               <div> <img src="experience/sms5/8.jpg" class="portrait-img"> </div>
+               <div class="name">hehe</div>
+               <div class="nickname"></div>
+               <div class="description-wrapper">
+                  <div class="description">
+                     Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                  </div>
+               </div>
             </div>
          </div>
          <div class="mb-6">
@@ -569,30 +669,55 @@
          </div>
          <div id="faculty-photos">
 
-            <div class="person faculty">
-               <div> <img src="Faculty-Portraits/Adrien.jpg" class="portrait-img"> </div>
-               <div class="name">Adrien Logsdon</div>
+            <div class="person faculty" onclick="toggleDetails(this)">
+               <div> <img src="experience/Semester 6/Bukber Filkom 2025/1.jpg" class="portrait-img"> </div>
+               <div class="name">hehe</div>
                <div class="nickname"></div>
+               <div class="description-wrapper">
+                  <div class="description">
+                     Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                  </div>
+               </div>
             </div>
-            <div class="person faculty">
-               <div> <img src="Faculty-Portraits/Fac Balf.jpg" class="portrait-img"> </div>
-               <div class="name">Anne Balf</div>
+             <div class="person faculty" onclick="toggleDetails(this)">
+               <div> <img src="experience/Semester 6/Bukber Filkom 2025/2.jpg" class="portrait-img"> </div>
+               <div class="name">hehe</div>
                <div class="nickname"></div>
+               <div class="description-wrapper">
+                  <div class="description">
+                     Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                  </div>
+               </div>
             </div>
-            <div class="person faculty">
-               <div> <img src="Faculty-Portraits/Fac Annie.jpg" class="portrait-img"> </div>
-               <div class="name">Antonia Garcia</div>
+             <div class="person faculty" onclick="toggleDetails(this)">
+               <div> <img src="experience/Semester 6/Bukber Filkom 2025/3.jpg" class="portrait-img"> </div>
+               <div class="name">hehe</div>
                <div class="nickname"></div>
+               <div class="description-wrapper">
+                  <div class="description">
+                     Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                  </div>
+               </div>
             </div>
-            <div class="person faculty">
-               <div> <img src="Faculty-Portraits/Asha.jpg" class="portrait-img"> </div>
-               <div class="name">Asha Sharma</div>
+             <div class="person faculty" onclick="toggleDetails(this)">
+               <div> <img src="experience/Semester 6/Bukber Filkom 2025/4.jpg" class="portrait-img"> </div>
+               <div class="name">hehe</div>
                <div class="nickname"></div>
+               <div class="description-wrapper">
+                  <div class="description">
+                     Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                  </div>
+               </div>
             </div>
-            <div class="person faculty">
-               <div> <img src="Faculty-Portraits/Fac Brigitte.jpg" class="portrait-img"> </div>
-               <div class="name">Brigitte Konen</div>
+             <div class="person faculty" onclick="toggleDetails(this)">
+               <div> <img src="experience/Semester 6/Bukber Filkom 2025/5.jpg" class="portrait-img"> </div>
+               <div class="name">hehe</div>
                <div class="nickname"></div>
+               <div class="description-wrapper">
+                  <div class="description">
+                     Mata kuliah yang membahas limit, turunan, integral, dan aplikasinya dalam teknik dan sains.
+                  </div>
+               </div>
             </div>
          </div>
          <div class="mb-6">
@@ -662,10 +787,6 @@
          </div>
       </div>
 
-      <div class="footer">
-         <p>This was created by: Vaisnavii Mohanraj, Lily Fenton, Ryan Buhre, Jeremy Goodale and Ms. Blitz </p>
-      </div>
-
       <script>
          function toggleDetails(clickedCard) {
             const allWrappers = document.querySelectorAll('.description-wrapper');
@@ -684,18 +805,18 @@
 
 
          const menuBtn = document.getElementById('menu-btn');
-      const mobileMenu = document.getElementById('mobile-menu');
-      let menuOpen = false;
+         const mobileMenu = document.getElementById('mobile-menu');
+         let menuOpen = false;
 
-      menuBtn.addEventListener('click', () => {
-        menuOpen = !menuOpen;
-        mobileMenu.classList.toggle('-translate-y-full');
+         menuBtn.addEventListener('click', () => {
+            menuOpen = !menuOpen;
+            mobileMenu.classList.toggle('-translate-y-full');
 
-        // Animate hamburger to X
-        menuBtn.querySelector('.line1').classList.toggle('rotate-45');
-        menuBtn.querySelector('.line2').classList.toggle('opacity-0');
-        menuBtn.querySelector('.line3').classList.toggle('-rotate-45');
-      });
+            // Animate hamburger to X
+            menuBtn.querySelector('.line1').classList.toggle('rotate-45');
+            menuBtn.querySelector('.line2').classList.toggle('opacity-0');
+            menuBtn.querySelector('.line3').classList.toggle('-rotate-45');
+         });
 
 
 
